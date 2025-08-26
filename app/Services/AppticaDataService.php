@@ -125,4 +125,18 @@ class AppticaDataService
             return false;
         }
     }
+
+    /**
+     * Возвращает позиции преложения по категорям в указанную дату
+     *
+     * @param string $date Дата в формате Y-m-d
+     * @return array Массив в формате ['category' => 'position']
+     */
+    public function getPositionsByCategoryOnDate(string $date): array
+    {
+        return AppTopPositionByCategory::query()
+            ->where('date', $date)
+            ->pluck('position', 'category_id as category')
+            ->toArray();
+    }
 }
