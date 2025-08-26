@@ -7,4 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/appTopCategory', AppTopCategoryController::class);
+Route::get('/appTopCategory', AppTopCategoryController::class)
+    ->middleware('throttle:5,1');
