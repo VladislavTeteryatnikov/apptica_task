@@ -39,7 +39,6 @@
         ],
         "post-install-cmd": [
             "@php artisan key:generate",
-            "@php artisan app:create-database",
             "@php artisan migrate --force"
         ],
         "post-update-cmd": [
